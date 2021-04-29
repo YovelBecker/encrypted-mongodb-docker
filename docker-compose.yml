@@ -1,0 +1,33 @@
+version: "3"
+services:  
+  mongo:
+    container_name: mongo-enterprise
+    image: mongo-enterprise
+    build:
+      context: .
+      args:
+        MONGO_PACKAGE: mongodb-enterprise
+        MONGO_REPO: repo.mongodb.com
+    ports:
+      - "3030:27017"
+
+
+
+
+# services:  
+#   mongo:
+#     container_name: mongo-enterprise
+#     image: mongo-enterprise
+#     build:
+#       context: .
+#       args:
+#         MONGO_PACKAGE: mongodb-enterprise
+#         MONGO_REPO: repo.mongodb.com
+#     # volumes:
+#     #   - /data/db/tara-db-prod:/data/db
+#     ports:
+#       - "3030:27017"
+#     environment:
+#       DB_PASS: myDbPass
+#       DB_ADMIN_PASS: myDbAdminPass
+#       DB_USERNAME: MyDbUsername
