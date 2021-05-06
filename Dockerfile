@@ -116,4 +116,13 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 27017
 
-CMD ["mongod"]
+WORKDIR /db-config
+
+COPY ./db-config .
+
+RUN chmod 600 ./init-db-users.sh
+RUN chmod 600 mongodb-keyfile
+RUN chmod 600 mongodb-keyfile
+RUN chown 999:999 mongodb-keyfile
+
+CMD ["mongod", "--auth", "--enableEncryption", "--encryptionKeyFile", "/db-config/mongodb-keyfile"]
