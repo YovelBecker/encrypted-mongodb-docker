@@ -10,3 +10,5 @@ services:
         MONGO_REPO: repo.mongodb.com
     ports:
       - "3030:27017"
+    volumes:
+      - /data/db/tara-db-prod:/data/db
