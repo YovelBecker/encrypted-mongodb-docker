@@ -11,4 +11,4 @@ services:
     ports:
       - "3030:27017"
     volumes:
-      - /data/db/tara-db-prod:/data/db
+      - ./data/db/:/data/db
